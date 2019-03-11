@@ -7,7 +7,7 @@
       {%- include 'product-meta', for_mobile: true -%}
 
       <div class="grid grid--large">
-        <div class="grid__cell 1/2--lap-and-up">
+        <div class="grid__cell 1/2--lap-and-up sticky-slideshow">
           {% comment %}
           -----------------------------------------------------
           SLIDESHOW
@@ -59,7 +59,7 @@
                     {%- assign image_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
                     <div class="product__slide-wrapper" id="slide-wrapper-{{ image.id }}">
-                      <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: image.aspect_ratio }}%">
+                      <div class="aspect-ratio">
                         <img class="product__slide-image lazyload image--fade-in"
                              data-src="{{ image_url }}"
                              data-widths="[{{ supported_sizes }}]"

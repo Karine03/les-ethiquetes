@@ -135,7 +135,14 @@
         "type": "font_picker",
         "id": "text_font",
         "label": "Font",
-        "default": "helvetica_n4"
+        "default": "helvetica_n4",
+        "option": [
+          {
+            "value": "Merriweather, serif",
+            "label": "Merriweather",
+            "group": "Serif"
+          }
+        ]
       },
       {
         "type": "select",
