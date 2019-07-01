@@ -1,5 +1,5 @@
 <section class="section section-{{ section.id }}">
-  <div class="container">
+  <div class="">
     {%- if section.settings.title != blank -%}
       <h2 class="section__title h3">{{ section.settings.title | escape }}</h2>
     {%- endif -%}
@@ -13,11 +13,11 @@
         {%- assign collection = collections[block.settings.collection] -%}
 
         {%- unless collection.empty? -%}
-          <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+          <div class="grid__cell 1/4--handheld-and-up 1/8--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
             {%- include 'collection-item', collection: collection, grid_items_per_row: grid_items_per_row, show_description: section.settings.show_description -%}
           </div>
         {%- else -%}
-          <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+          <div class="grid__cell 1/4--handheld-and-up 1/8--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
             <a class="collection-item">
               <div class="collection-item__placeholder">
                 {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
@@ -25,14 +25,14 @@
 
               <div class="collection-item__info">
                 <h3 class="collection-item__title h4">{{ 'home_page.onboarding.collection_title' | t }}</h3>
-
+<!-- 
                 <div class="collection-item__bottom">
                   {%- if section.settings.show_description -%}
                     <p class="collection-item__description">{{ 'home_page.onboarding.collection_description' | t }}</p>
                   {%- endif -%}
 
                   <button class="collection-item__button button">{{ 'home_page.onboarding.collection_see_more' | t }}</button>
-                </div>
+                </div> -->
               </div>
             </a>
           </div>

@@ -2,19 +2,11 @@
 We have some elements that are at two different places in mobile and desktop. In order to make the CSS easier, we just duplicate those in the code
 {%- endcomment -%}
 
-{%- capture collection_top -%}
-  <div class="collection__top {% if section.settings.show_overlay %}accent-overlay{% else %}collection__top--no-overlay{% endif %}">
-    <img class="collection__image" src="{{ collection.image | img_url: '800x800' }}" alt="{{ collection.image.alt | escape }}">
+{% assign namespace = collection.metafields.sf_collection_brand.brand %}        
 
-    <div class="collection__info">
-      <h1 class="collection__title h1">{{ collection.title }}</h1>
-
-      {%- if collection.description != blank -%}
-        <p class="collection__description">{{ collection.description | strip_html }}</p>
-      {%- endif -%}
-    </div>
-  </div>
-{%- endcapture -%}
+{%- if shop.metafields[namespace].name -%}
+  {% include 'collection-brand' %}
+{%- endif -%}
 
 {%- capture collection_filters -%}
   {%- if section.settings.show_tag_filters and collection.all_tags.size > 1 -%}
@@ -100,13 +92,7 @@ We have some elements that are at two different places in mobile and desktop. In
       items (if there are three items per row or more)
       {%- endcomment -%}
 
-      {%- if collection.image -%}
-        {%- if grid_items_per_row == 2 -%}
-          {%- assign products_per_page = products_per_page | minus: 1 -%}
-        {%- else -%}
-          {%- assign products_per_page = products_per_page | minus: 2 -%}
-        {%- endif -%}
-      {%- endif -%}
+
 
       {%- paginate collection.products by products_per_page -%}
         <div class="list-products {% if collection.image %}list-products--with-collection-image{% endif %} grid grid--large">
@@ -115,14 +101,8 @@ We have some elements that are at two different places in mobile and desktop. In
           the pagination count
           {%- endcomment -%}
 
-          {%- if collection.image -%}
-            <div class="grid__cell hidden-thumb hidden-handheld 1/2--lap-and-up {% if grid_items_per_row == 2 %}1/2--desk{% else %}2/{{ grid_items_per_row }}--desk{% endif %}">
-              {{ collection_top }}
-            </div>
-          {%- endif -%}
-
           {%- for product in collection.products -%}
-            <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk">
+            <div class="grid__cell 1/2--handheld-and-up 1/4--lap-and-up 1/{{ grid_items_per_row }}--desk">
               {%- include 'product-item', product: product, grid_items_per_row: grid_items_per_row, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
             </div>
           {%- endfor -%}

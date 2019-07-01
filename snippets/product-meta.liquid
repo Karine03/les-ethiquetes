@@ -15,7 +15,6 @@
       <a href="{{ url_for_vendor }}">{{ product.vendor }}</a>
     </h2>
   {%- endif -%}
-
   <div class="product__prices">
     {%- if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price -%}
       <span class="product__price product__price--new h4" data-money-convertible>{{ product.selected_or_first_available_variant.price | money }}</span><!--

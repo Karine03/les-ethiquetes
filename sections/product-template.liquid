@@ -106,17 +106,14 @@
 
             {%- include 'product-form' -%}
 
-            {%- if product.description != blank -%}
-              <div class="product__description rte">
-                {{ product.description }}
-              </div>
-            {%- endif -%}
+            {%- include 'product-tags' -%}
+
+            {%- include 'product-tab' -%}
 
             {%- if section.settings.show_share_buttons -%}
               {%- include 'share-buttons' -%}
             {%- endif -%}
 
-            {%- include 'product-tabs' -%}
           </div>
         </div>
       </div>

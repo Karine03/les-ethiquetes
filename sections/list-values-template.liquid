@@ -1,0 +1,33 @@
+
+<div class="value-sections">
+  {%- for collection in collections -%}
+    {%- if collection.metafields.sf_collection_values.show_on_value_page == 1 -%}
+      <div class="value-container">
+        {%- include 'value-item', collection: collection, grid_items_per_row: grid_items_per_row, show_description: section.settings.show_description -%}
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "List of collections page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show collections' description excerpt",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "grid_items_per_row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Collections per row (desktop)",
+      "default": 3
+    }
+  ]
+}
+{% endschema %}

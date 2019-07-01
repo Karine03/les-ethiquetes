@@ -53,7 +53,7 @@
               {%- assign related_product = all_products[product.metafields.sf_related_products[related_product_option]] -%}
 
               {%- unless related_product.empty? -%}
-                <div class="grid__cell 1/2--handheld-and-up 1/{{ related_products_count }}--desk">
+                <div class="grid__cell 1/4--handheld-and-up 1/{{ related_products_count }}--desk">
                   {%- include 'product-item', product: related_product, grid_items_per_row: related_products_count, image_dimension: section.settings.related_products_image_dimension, show_color_swatch: section.settings.show_related_products_color_swatch -%}
                 </div>
               {%- endunless -%}
@@ -64,7 +64,7 @@
                 {%- continue -%}
               {%- endif -%}
 
-              <div class="grid__cell 1/2--handheld-and-up 1/{{ related_products_count }}--desk">
+              <div class="grid__cell 1/4--handheld-and-up 1/{{ related_products_count }}--desk">
                 {%- include 'product-item', product: related_product, grid_items_per_row: related_products_count, image_dimension: section.settings.related_products_image_dimension, show_color_swatch: section.settings.show_related_products_color_swatch -%}
               </div>
 

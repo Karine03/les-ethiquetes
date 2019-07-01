@@ -1,0 +1,44 @@
+<div class="product__tabs tabs">
+  <div class="tabs__nav">
+    <ul class="tabs__nav-inner list--unstyled" role="tablist">
+      {%- assign current_tab_index = 0 -%}
+
+        <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+          {{- product.metafields.sf_product_tabs.tab_1_title -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+
+        <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+          {{- product.metafields.sf_product_tabs.tab_2_title -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+
+        <li class="tabs__nav-item {% if current_tab_index == 0 %}tabs__nav-item--active{% endif %} text--uppercase" data-tab-index="{{ current_tab_index }}" role="tab">
+          {{- product.metafields.sf_product_tabs.tab_3_title -}}
+          {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+        </li>
+
+    </ul>
+  </div>
+
+  <ul class="tabs__content list--unstyled">
+    {%- assign current_tab_index = 0 -%}
+
+
+      <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+        {{- product.metafields.sf_product_tabs.tab_1_content -}}
+        {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+      </li>
+
+      <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+        {{- product.metafields.sf_product_tabs.tab_2_content -}}
+        {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+      </li>
+
+      <li class="tabs__content-item {% if current_tab_index == 0 %}tabs__content-item--active{% endif %} rte">
+        {{- product.metafields.sf_product_tabs.tab_3_content -}}
+        {%- assign current_tab_index = current_tab_index | plus: 1 -%}
+      </li>
+
+  </ul>
+</div>

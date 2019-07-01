@@ -1,0 +1,17 @@
+{% assign namespace = collection.metafields.sf_collection_brand.brand %}        
+
+<div class="page__content-wrapper page__content-wrapper--force-background">
+  <div class="container">
+
+    <div class="brand-banner">
+      <div class="brand-banner-img">
+        <img src="{{ shop.metafields[namespace].image }}" alt="" />
+      </div>
+      <div class="">
+        <h2>{{ shop.metafields[namespace].name }}</h2>
+        <p>{{ shop.metafields[namespace].description }}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>

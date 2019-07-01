@@ -11,11 +11,11 @@
             {%- assign product = all_products[block.settings.product] -%}
 
             {%- unless product.empty? -%}
-              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
+              <div class="grid__cell 1/4--handheld-and-up 1/4--desk" {{ block.shopify_attributes }} data-slide-index="{{ forloop.index0 }}">
                 {%- include 'product-item', product: product, grid_items_per_row: 4, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
               </div>
             {%- else -%}
-              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
+              <div class="grid__cell 1/4--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
                 <div class="product-item">
                   <figure class="product-item__image-container">
                     <a href="#" class="product-item__link">
@@ -38,7 +38,7 @@
             {%- endunless -%}
           {%- else -%}
             {%- for i in (1..4) -%}
-              <div class="grid__cell 1/2--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
+              <div class="grid__cell 1/4--handheld-and-up 1/4--desk" data-slide-index="{{ forloop.index0 }}">
                 <div class="product-item">
                   <figure class="product-item__image-container">
                     <a href="#" class="product-item__link">

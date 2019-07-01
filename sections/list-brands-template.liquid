@@ -1,6 +1,6 @@
 {%- if template.name == 'list-collections' -%}
   {%- assign linklist = linklists.all-collections -%}
-{%- elsif template == 'page.collections' -%}
+{%- elsif template == 'page.brands' -%}
   {%- assign linklist_handle = page.content | strip_html | handleize -%}
   {%- assign linklist = linklists[linklist_handle] -%}
 {%- endif -%}
@@ -22,7 +22,7 @@
     {%- for collection in collections -%}
       {%- if collection.metafields.sf_collection_brand.show_on_brands_page == 1 -%}
         <div class="grid__cell 1/2--handheld-and-up 1/{{ grid_items_per_row }}--desk">
-          {%- include 'collection-item', collection: collection, grid_items_per_row: grid_items_per_row, show_description: section.settings.show_description -%}
+          {%- include 'brand-item', collection: collection, grid_items_per_row: grid_items_per_row, show_description: section.settings.show_description -%}
         </div>
       {%- endif -%}
     {%- endfor -%}

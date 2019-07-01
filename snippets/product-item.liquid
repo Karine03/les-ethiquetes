@@ -41,11 +41,11 @@
   {%- endif -%}
 
   <figure class="product-item__image-container">
-    <a href="{{ product.url | within: collection }}" class="product-item__link">
       {%- include 'image-size', sizes: '200,300,400,600,800,900,1000,1200', image: product.featured_image -%}
-      {%- assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+      {%- assign image_url = product.featured_image | img_url: '1x1' | replace: '_1x1.', '_800x.' -%}
+    <a href="{{ product.url | within: collection }}" class="product-item__link" style="background-image: url({{ image_url }})">
 
-      <div class="product-item__image-wrapper" style="max-width: {{ image_max_width }}">
+<!--       <div class="product-item__image-wrapper" style="max-width: {{ image_max_width }}">
         <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: product.featured_image.aspect_ratio }}%">
           <img class="product-item__image {% if image_dimension == 'fill_width' %}product-item__image--fill{% endif %} {% if template.name == 'blog' %}product-item__image--constrained{% endif %} lazyload image--fade-in"
                data-sizes="auto"
@@ -58,11 +58,14 @@
                  src="{{ product.featured_image | img_url: '800x' }}">
           </noscript>
         </div>
-      </div>
+      </div> -->
     </a>
   </figure>
 
   <div class="product-item__info">
+    <h3 class="product-item__title">
+      <a href="{{ product.url | within: collection }}" class="link">{{ product.title }}</a>
+    </h3>
     {%- if settings.product_show_vendor and product.vendor != blank -%}
       <h4 class="product-item__vendor text--uppercase">
         {%- assign vendor_handle = product.vendor | handle -%}
@@ -78,9 +81,7 @@
       </h4>
     {%- endif -%}
 
-    <h3 class="product-item__title">
-      <a href="{{ product.url | within: collection }}" class="link">{{ product.title }}</a>
-    </h3>
+
 
     {%- if product.compare_at_price > product.price -%}
       <span class="product-item__price product-item__price--new" data-money-convertible>{{ product.price | money }}</span>

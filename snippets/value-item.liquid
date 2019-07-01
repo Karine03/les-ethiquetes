@@ -1,0 +1,26 @@
+{% assign namespace = collection.metafields.sf_collection_values.value %}        
+
+{%- assign collection_image = shop.metafields[namespace].image -%}
+{% assign title = shop.metafields[namespace].title %}
+{% assign description = shop.metafields[namespace].description %}
+
+
+{%- if shop.metafields[namespace].right_position == 1 -%}
+  <div class="value-description">
+    <div>
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+  <div class="value-image-container" style="background-image: url({{ collection_image }})">
+  </div>
+{%- else -%}
+  <div class="value-image-container" style="background-image: url({{ collection_image }})">
+  </div>
+  <div class="value-description">
+    <div>
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+{%- endif -%}

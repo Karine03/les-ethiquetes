@@ -1,0 +1,9 @@
+{% assign namespace = collection.metafields.sf_collection_brand.brand %}        
+
+{%- assign collection_image = shop.metafields[namespace].logo -%}
+
+<div class="brand-image-container">
+  <a href="{{ collection.url }}">
+    <img src="{{ collection_image }}" alt="">
+  </a>
+</div>

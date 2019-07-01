@@ -36,7 +36,7 @@
       {%- paginate search.results by pagination_size -%}
         <div class="list-products grid grid--large">
           {%- for result in search.results -%}
-            <div class="grid__cell 1/2--handheld-and-up 1/{{ section.settings.grid_items_per_row }}--desk">
+            <div class="grid__cell 1/4--handheld-and-up 1/{{ section.settings.grid_items_per_row }}--desk">
               {%- case result.object_type -%}
                 {%- when 'product' -%}
                   {%- include 'product-item', product: result, grid_items_per_row: section.settings.grid_items_per_row, image_dimension: section.settings.image_dimension, show_color_swatch: section.settings.show_color_swatch -%}
